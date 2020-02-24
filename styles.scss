@@ -93,8 +93,9 @@ stripes{
   left: 0; 
   width: 100%; 
   height: 100%;
-  font-size: 2.5em;
-  color: white; 
+  font-size: 2vw;
+  color: white;
+  letter-spacing: .3em;
 }
 
 .stripe-content:before{
@@ -201,3 +202,10 @@ stripes{
       transform: translateX(-20vw)
   }
 }
+
+
+
+
+
+
+
