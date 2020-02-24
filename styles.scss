@@ -1,0 +1,203 @@
+@import "./colors";
+@import "./mixins";
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default padding */
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* Remove list styles on ul, ol elements with a class attribute */
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Natural flow and rhythm in articles by default */
+article > * + * {
+  margin-top: 1em;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+stripes{
+    @include centerElements();
+    overflow: hidden; 
+}
+.stripe {
+  @include centerElements();
+  cursor: pointer;
+  overflow: hidden; 
+  position: absolute; 
+  width: 20vw;
+  height: 100vh;
+}
+
+.stripe-content{
+  @include centerElements();
+  animation-fill-mode: both;
+  animation-duration: 1s;
+  animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+  position: absolute;
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  height: 100%;
+  font-size: 2.5em;
+  color: white; 
+}
+
+.stripe-content:before{
+  position: absolute;
+  content: "";
+  opacity: 0.05;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background: white;
+  transform-origin: center center;
+  transform: skew(30deg) scaleY(1) translate(0, 0);
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.stripes .stripe-content:hover:before {
+  opacity: 0.1;
+  transform: skew(0deg) scale(2) translate(0, 0);
+}
+
+.stripe1 {
+  @include centerElements();; 
+  background: $stripe1;
+  left: -20vw;
+  animation: stripe1 0.6s 0.1s forwards ease-out;
+}
+.stripe2 {
+  @include centerElements();
+  background: $stripe2;
+  left: 20vw;
+  bottom: -100vh; 
+  animation: stripe2 0.6s 0.2s forwards ease-out;
+}
+.stripe3 {
+  @include centerElements();
+  background: $stripe3;
+  left: 40vw;
+  top: -100vh; 
+  animation: stripe3 0.6s 0.3s forwards ease-out;
+}
+.stripe4 {
+  @include centerElements();
+  background: $stripe4;
+  right: 20vw;
+  bottom: -100vh; 
+  animation: stripe4 0.6s 0.4s forwards ease-out;
+}
+.stripe5 {
+  @include centerElements();
+  background: $stripe5;
+  right: -20vw;
+  animation: stripe5 0.6s 0.5s forwards ease-out;
+}
+
+
+@keyframes stripe1 {
+  from {
+      transform: translateX(0vw)
+  }
+
+  to {
+      transform: translateX(20vw)
+  }
+}
+
+@keyframes stripe2 {
+  from {
+      transform: translateY(0vh)
+  }
+
+  to {
+      transform: translateY(-100vh)
+  }
+}
+
+@keyframes stripe3 {
+  from {
+      transform: translateY(-100vh)
+  }
+
+  to {
+      transform: translateY(100vh)
+  }
+}
+
+@keyframes stripe4 {
+  from {
+      transform: translateY(0vh)
+  }
+
+  to {
+      transform: translateY(-100vh)
+  }
+}
+
+@keyframes stripe5 {
+  from {
+      transform: translateX(0vw)
+  }
+
+  to {
+      transform: translateX(-20vw)
+  }
+}
